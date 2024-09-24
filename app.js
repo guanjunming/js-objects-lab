@@ -316,7 +316,7 @@ game.catchPokemon = function (pokemonObj) {
 
   pokeball.quantity--;
 
-  if (game.party.length < MAX_PARTY_SIZE) {
+  if (game.partyCount() < MAX_PARTY_SIZE) {
     game.party.push(pokemonObj);
     console.log(`Caught a ${pokemonObj.name}!`);
   } else {
@@ -357,7 +357,7 @@ game.catchPokemon = function (pokemonName) {
 
   pokeball.quantity--;
 
-  if (game.party.length < MAX_PARTY_SIZE) {
+  if (game.partyCount() < MAX_PARTY_SIZE) {
     game.party.push(pokemonObj);
     console.log(`Caught a ${pokemonObj.name}!`);
   } else {
