@@ -19,6 +19,8 @@ const game = {
   ],
 };
 
+const MAX_PARTY_SIZE = 6;
+
 // Utility print function
 function printGameInfo() {
   console.log(game);
@@ -51,7 +53,6 @@ Solve Exercise 4 here:
 */
 // Add starter Pokemon Charmander
 game.party.push(pokemon[3]);
-console.log(game);
 
 /*
 Exercise 5
@@ -104,7 +105,7 @@ Exercise 8
 
 Solve Exercise 8 here:
 */
-console.log("Exercise 8:");
+console.log("----- Exercise 8 -----");
 game.party.forEach((pokemon) => console.log(pokemon.name));
 
 /*
@@ -115,7 +116,7 @@ Exercise 9
 
 Solve Exercise 9 here:
 */
-console.log("Exercise 9:");
+console.log("----- Exercise 9 -----");
 const starters = pokemon.filter((obj) => obj.starter);
 starters.forEach((pokemon) => console.log(pokemon.name));
 
@@ -134,6 +135,9 @@ game.catchPokemon = function (pokemonObj) {
   game.party.push(pokemonObj);
   console.log(`Caught a ${pokemonObj.name}!`);
 };
+
+console.log("----- Exercise 10 -----");
+game.catchPokemon(pokemon[26]); // Sandshrew
 
 /*
 Exercise 11
@@ -155,7 +159,9 @@ game.catchPokemon = function (pokemonObj) {
   pokeball.quantity--;
 };
 
-game.catchPokemon(pokemon[9]);
+console.log("----- Exercise 11 -----");
+game.catchPokemon(pokemon[9]); // Caterpie
+console.log("items:", game.items);
 
 /*
 Exercise 12
@@ -207,6 +213,7 @@ game.gymStatus = function () {
   console.log(gymTally);
 };
 
+console.log("----- Exercise 13 -----");
 game.gymStatus();
 
 /*
@@ -239,6 +246,7 @@ Exercise 16
 
 Solve Exercise 16 here:
 */
+console.log("----- Exercise 16 -----");
 printGameInfo();
 
 /*
@@ -272,7 +280,7 @@ Solve Exercise 18 here:
 game.collection = [];
 
 game.catchPokemon = function (pokemonObj) {
-  if (game.party.length < 6) {
+  if (game.partyCount() < MAX_PARTY_SIZE) {
     game.party.push(pokemonObj);
     console.log(`Caught a ${pokemonObj.name}!`);
   } else {
@@ -284,10 +292,9 @@ game.catchPokemon = function (pokemonObj) {
   pokeball.quantity--;
 };
 
+console.log("----- Exercise 18 -----");
 game.catchPokemon(pokemon[15]); // Pidgey
-game.catchPokemon(pokemon[18]); // Rattata -> go to collection
-
-printGameInfo();
+console.log("items:", game.items);
 
 /*
 Exercise 19
@@ -309,7 +316,7 @@ game.catchPokemon = function (pokemonObj) {
 
   pokeball.quantity--;
 
-  if (game.party.length < 6) {
+  if (game.party.length < MAX_PARTY_SIZE) {
     game.party.push(pokemonObj);
     console.log(`Caught a ${pokemonObj.name}!`);
   } else {
@@ -318,10 +325,11 @@ game.catchPokemon = function (pokemonObj) {
   }
 };
 
-// catch 10 of 1st pokemon Bulbasaur
-// for (let i = 0; i < 10; i++) {
-//   game.catchPokemon(pokemon[0]);
-// }
+console.log("----- Exercise 19 -----");
+// try catch 10 of 1st pokemon Bulbasaur
+for (let i = 0; i < 10; i++) {
+  game.catchPokemon(pokemon[0]);
+}
 
 /*
 Exercise 20
@@ -349,7 +357,7 @@ game.catchPokemon = function (pokemonName) {
 
   pokeball.quantity--;
 
-  if (game.party.length < 6) {
+  if (game.party.length < MAX_PARTY_SIZE) {
     game.party.push(pokemonObj);
     console.log(`Caught a ${pokemonObj.name}!`);
   } else {
@@ -357,6 +365,9 @@ game.catchPokemon = function (pokemonName) {
     console.log(`Added ${pokemonObj.name} to collection!`);
   }
 };
+
+console.log("----- Exercise 20 -----");
+game.catchPokemon("Qwerty");
 
 /*
 Exercise 21
@@ -394,4 +405,5 @@ pokemon.forEach((p) => {
   }
 });
 
+console.log("----- Exercise 21 -----");
 console.log(pokemonByTypes);
